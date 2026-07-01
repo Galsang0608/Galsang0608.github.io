@@ -1,0 +1,260 @@
+/* =========================================
+   1. 全局毛玻璃沉浸透视
+========================================= */
+#page-header, #page-header:before {
+    background: transparent !important;
+}
+.layout > div:first-child:not(.recent-posts),
+#recent-posts > .recent-post-item,
+.layout > .aside-content > .card-widget {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: none !important;
+}
+
+/* =========================================
+   2. 核心狙击：彻底抹杀主题自带的深色底图图层
+========================================= */
+.bg-cover {
+    display: none !important;
+}
+
+/* =========================================
+   3. 翻页模块（上一篇/下一篇）：50% 粉色毛玻璃
+========================================= */
+#pagination.pagination-post {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+#pagination.pagination-post a {
+    background: rgba(255, 158, 191, 0.5) !important;
+    background-color: rgba(255, 158, 191, 0.5) !important;
+    background-image: none !important;
+    border-radius: 12px !important;
+}
+#pagination.pagination-post a * {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* =========================================
+   4. 相关推荐模块（六宫格）：绝对穿透与内联抹杀
+========================================= */
+.relatedPosts, .relatedPosts-list {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.relatedPosts-list a {
+    background: rgba(255, 158, 191, 0.5) !important;
+    background-color: rgba(255, 158, 191, 0.5) !important;
+    background-image: none !important;
+    border-radius: 12px !important;
+}
+.relatedPosts-list a * {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+.relatedPosts-list img {
+    display: none !important; 
+}
+
+/* =========================================
+   5. 强制文字高对比度护眼
+========================================= */
+#pagination.pagination-post *,
+.relatedPosts * {
+    color: #4c4948 !important;
+    text-shadow: none !important;
+}
+
+/* =========================================
+   6. 侧边栏目录 (TOC) 激活项专属粉色
+========================================= */
+#card-toc .toc-content .toc-link.active {
+    background: #ff9ebf !important;
+    color: #fff !important;
+    border-left-color: #ff9ebf !important;
+}
+
+/* =========================================
+   7. 深色模式 (Dark Mode) 完美适配补丁
+========================================= */
+/* 当开启深色模式时，将主卡片切换为深色毛玻璃 */
+[data-theme="dark"] .layout > div:first-child:not(.recent-posts),
+[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] .layout > .aside-content > .card-widget {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 翻页与相关推荐模块的粉色在暗色下稍微降低透明度，更融合夜间星空 */
+[data-theme="dark"] #pagination.pagination-post a,
+[data-theme="dark"] .relatedPosts-list a {
+    background: rgba(255, 158, 191, 0.3) !important;
+    background-color: rgba(255, 158, 191, 0.3) !important;
+}
+
+/* 释放刚才锁死的深灰文字，在深色模式下将其转为清晰的白色 */
+[data-theme="dark"] #pagination.pagination-post *,
+[data-theme="dark"] .relatedPosts * {
+    color: #e0e0e0 !important;
+}
+
+/* =========================================
+   9. 专属 VSCode 嫁接: Wuthering Waves Aemeath (终极火力穿透版)
+========================================= */
+:root {
+    /* 强行覆盖 Butterfly 默认的代码块 CSS 变量 (白天模式) */
+    --hl-bg: rgba(254, 251, 248, 0.85) !important;
+    --hltools-bg: transparent !important;
+    --hlnumber-bg: transparent !important;
+    --hl-color: #3D2D35 !important;
+    --hlnumber-color: #D0C0C8 !important;
+    
+    /* Aemeath 专属高亮色 */
+    --aemeath-select: rgba(228, 136, 172, 0.25);
+    --aemeath-comment: #A09092;
+    --aemeath-keyword: #D87098;
+    --aemeath-type: #B8508C;
+    --aemeath-constant: #E8A0C0;
+    --aemeath-function: #5AB8C0;
+    --aemeath-number: #5AB8C0;
+    --aemeath-string: #987888;
+    --aemeath-punct: #8D7A82;
+}
+
+[data-theme="dark"] {
+    /* 强行覆盖 Butterfly 默认的代码块 CSS 变量 (黑夜模式) */
+    --hl-bg: rgba(26, 20, 24, 0.85) !important;
+    --hltools-bg: transparent !important;
+    --hlnumber-bg: transparent !important;
+    --hl-color: #F5EBF0 !important;
+    --hlnumber-color: #5A4854 !important;
+
+    /* Aemeath 专属高亮色 */
+    --aemeath-select: rgba(228, 136, 172, 0.3);
+    --aemeath-comment: #7A6870;
+    --aemeath-keyword: #F5A8C8;
+    --aemeath-type: #e488ac;
+    --aemeath-constant: #fdd7e8;
+    --aemeath-function: #77c1c8;
+    --aemeath-number: #c8f9fc;
+    --aemeath-string: #C8A8B8;
+    --aemeath-punct: #B098A8;
+}
+
+/* 1. 物理扒掉主题的实心背景，只在最外层挂载 85% 鸣潮专属毛玻璃 */
+#article-container figure.highlight,
+#article-container figure.highlight .highlight-tools,
+#article-container figure.highlight .gutter,
+#article-container figure.highlight .gutter pre,
+#article-container figure.highlight table,
+#article-container figure.highlight .code pre {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+#article-container figure.highlight {
+    background: var(--hl-bg) !important;
+    border-radius: 12px !important;
+}
+
+/* 2. 选中高亮颜色精确映射 */
+#article-container figure.highlight ::selection,
+#article-container figure.highlight .code pre ::selection {
+    background: var(--aemeath-select) !important;
+}
+
+/* 3. 核心语法靶向狙击：同时兼容无前缀(Hexo默认)与有前缀(原生hljs)类名 */
+#article-container figure.highlight .comment, 
+#article-container figure.highlight .quote,
+#article-container figure.highlight .hljs-comment, 
+#article-container figure.highlight .hljs-quote { color: var(--aemeath-comment) !important; font-style: italic !important; }
+
+#article-container figure.highlight .keyword, 
+#article-container figure.highlight .selector-tag, 
+#article-container figure.highlight .deletion,
+#article-container figure.highlight .hljs-keyword, 
+#article-container figure.highlight .hljs-selector-tag, 
+#article-container figure.highlight .hljs-deletion { color: var(--aemeath-keyword) !important; }
+
+#article-container figure.highlight .type, 
+#article-container figure.highlight .class .title,
+#article-container figure.highlight .hljs-type, 
+#article-container figure.highlight .hljs-class .hljs-title { color: var(--aemeath-type) !important; font-weight: bold !important; }
+
+#article-container figure.highlight .literal, 
+#article-container figure.highlight .built_in, 
+#article-container figure.highlight .constant,
+#article-container figure.highlight .hljs-literal, 
+#article-container figure.highlight .hljs-built_in, 
+#article-container figure.highlight .hljs-constant { color: var(--aemeath-constant) !important; }
+
+#article-container figure.highlight .title, 
+#article-container figure.highlight .name, 
+#article-container figure.highlight .section, 
+#article-container figure.highlight .selector-id, 
+#article-container figure.highlight .selector-class,
+#article-container figure.highlight .hljs-title, 
+#article-container figure.highlight .hljs-name, 
+#article-container figure.highlight .hljs-section, 
+#article-container figure.highlight .hljs-selector-id, 
+#article-container figure.highlight .hljs-selector-class { color: var(--aemeath-function) !important; font-weight: bold !important; }
+
+#article-container figure.highlight .number,
+#article-container figure.highlight .hljs-number { color: var(--aemeath-number) !important; }
+
+#article-container figure.highlight .string, 
+#article-container figure.highlight .regexp, 
+#article-container figure.highlight .symbol, 
+#article-container figure.highlight .addition,
+#article-container figure.highlight .hljs-string, 
+#article-container figure.highlight .hljs-regexp, 
+#article-container figure.highlight .hljs-symbol, 
+#article-container figure.highlight .hljs-addition { color: var(--aemeath-string) !important; }
+
+#article-container figure.highlight .punctuation,
+#article-container figure.highlight .hljs-punctuation { color: var(--aemeath-punct) !important; }
+
+#article-container figure.highlight .attr, 
+#article-container figure.highlight .attribute,
+#article-container figure.highlight .hljs-attr, 
+#article-container figure.highlight .hljs-attribute { color: var(--aemeath-type) !important; font-style: italic !important; }
+
+/* 强行给行号染回护眼的灰色，避免被代码颜色污染 */
+#article-container figure.highlight .gutter .line { color: var(--hlnumber-color) !important; }
+
+/* =========================================
+   10. 物理抹除文章底部的社交分享模块
+========================================= */
+.post-share,
+.post-meta__share,
+.social-share,
+.share-style {
+    display: none !important;
+}
+
+/* =========================================
+   11. 彻底抹除侧边栏公告模块
+========================================= */
+.card-widget.card-announcement {
+    display: none !important;
+}
+
+/* =========================================
+   12. 修复括号与参数块 (.params) 的异常泛红
+========================================= */
+#article-container figure.highlight .params,
+#article-container figure.highlight .hljs-params {
+    color: var(--hl-color) !important;
+}
+
+/* =========================================
+   13. 修复行内代码块 (Inline Code) 的异常泛红
+========================================= */
+#article-container :not(pre) > code {
+    color: var(--hl-color) !important;
+    background: var(--hl-bg) !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+}
